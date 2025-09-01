@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SlicePilot.ai — Autonomous Video Clipping</title>
+  <meta name="description" content="SlicePilot.ai finds the best moments in your long videos and turns them into short, shareable clips—automatically." />
+  <meta property="og:title" content="SlicePilot.ai — Autonomous Video Clipping" />
+  <meta property="og:description" content="Autonomous clipping, captions, and social-ready exports." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://yourname.github.io/slicepilot-website/preview.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🎬</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home">🎬 SlicePilot<span>.ai</span></a>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#demo">Demo</a>
+      <a href="#contact" class="btn btn-small">Contact</a>
+      <button id="modeToggle" class="icon-btn" aria-label="Toggle dark mode">🌓</button>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <h1>Turn long videos into viral clips — <span class="highlight">automatically</span>.</h1>
+      <p class="sub">SlicePilot.ai watches your video, finds the exciting parts, adds captions, and exports for TikTok, Reels, and Shorts.</p>
+      <div class="cta">
+        <a href="#contact" class="btn">Get early access</a>
+        <a href="#features" class="btn btn-secondary">See features</a>
+      </div>
+      <ul class="ticks">
+        <li>🎯 Smart highlights</li>
+        <li>💬 Auto-captions</li>
+        <li>📱 Perfect sizes</li>
+        <li>🤖 n8n automation ready</li>
+      </ul>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Features that save hours</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>AI Highlights</h3>
+          <p>Finds the best moments using the transcript and scene changes.</p>
+        </article>
+        <article class="card">
+          <h3>Auto-Captions</h3>
+          <p>Clear, stylish subtitles with punctuation and emojis (optional).</p>
+        </article>
+        <article class="card">
+          <h3>Resize in 1 click</h3>
+          <p>9:16, 1:1, 16:9 — exports for every platform.</p>
+        </article>
+        <article class="card">
+          <h3>Brand Templates</h3>
+          <p>Add your colors, fonts, and logo to every clip.</p>
+        </article>
+        <article class="card">
+          <h3>Auto-Post hooks</h3>
+          <p>Send finished clips to n8n → schedule for TikTok/YouTube.</p>
+        </article>
+        <article class="card">
+          <h3>Team-friendly</h3>
+          <p>Invite friends or clients to review and approve cuts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="section alt">
+      <h2>How it works (kid simple)</h2>
+      <ol class="steps">
+        <li><strong>Upload</strong> your long video.</li>
+        <li>We <strong>listen</strong> and <strong>look</strong> for exciting moments.</li>
+        <li>We <strong>cut</strong> short clips and <strong>add words</strong> (captions).</li>
+        <li>You <strong>download</strong> and post — or let n8n auto-post for you.</li>
+      </ol>
+      <p class="note">Think of it like a smart helper that turns a whole movie into the best highlights for your phone.</p>
+    </section>
+
+    <section id="demo" class="section">
+      <h2>Quick demo</h2>
+      <div class="video-wrap">
+        <!-- Replace the URL with your own YouTube or Vimeo link -->
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="SlicePilot.ai Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <h2>Get early access</h2>
+      <p>Tell us about your videos. We’ll invite you when the beta is ready.</p>
+
+      <!-- Contact form: POSTs to a webhook (n8n or Formspree). Replace ACTION URL below. -->
+      <form id="contactForm" action="https://example.com/webhook/contact" method="POST" novalidate>
+        <div class="form-grid">
+          <label>
+            Your name
+            <input type="text" name="name" placeholder="Taylor Swift" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label class="full">
+            What do you create?
+            <textarea name="message" rows="4" placeholder="Podcasts, YouTube videos, webinars..." required></textarea>
+          </label>
+        </div>
+        <button type="submit" class="btn">Request invite</button>
+        <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+      <p class="tiny">By submitting, you agree to our <a href="#privacy">Privacy</a>.</p>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>FAQ</h2>
+      <details>
+        <summary>What makes it “autonomous”?</summary>
+        <p>It can find highlights, add captions, and export without you trimming by hand. You can still tweak if you want.</p>
+      </details>
+      <details>
+        <summary>Do I need a strong computer?</summary>
+        <p>Nope. It runs in the cloud. Your laptop just uploads the video.</p>
+      </details>
+      <details>
+        <summary>Can it auto-post?</summary>
+        <p>Yes, via <strong>n8n</strong> webhooks. Finish a clip → n8n schedules posts.</p>
+      </details>
+    </section>
+
+    <section id="privacy" class="section alt">
+      <h2>Privacy (plain words)</h2>
+      <p>Your videos stay private. We only process them to make clips, then keep them for as short as possible. Ask and we delete anytime.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> SlicePilot.ai • Built with ❤️ for creators</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
