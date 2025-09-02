@@ -62,3 +62,21 @@
   <script src="script.js"></script>
 </body>
 </html>
+<section id="workflow" class="content">
+  <h2>Workflow Builder</h2>
+
+  <div class="workflow-controls">
+    <select id="stepType">
+      <option value="upload">📤 Upload Video</option>
+      <option value="transcribe">📝 Transcribe</option>
+      <option value="clip">✂️ Generate Clips</option>
+      <option value="email">📧 Send Email</option>
+      <option value="publish">🌐 Publish Online</option>
+    </select>
+    <button id="addStepBtn">+ Add Step</button>
+  </div>
+
+  <div id="workflowCanvas" class="workflow-canvas">
+    Drag & drop steps here to build your automation
+  </div>
+</section>
