@@ -124,3 +124,69 @@ if (startBtn) {
     createWorkflowStep();
   });
 }
+// -----------------------------
+// Workflow Builder
+// -----------------------------
+const canvas = document.getElementById('workflowCanvas');
+const addStepBtn = document.getElementById('addStepBtn');
+const stepType = document.getElementById('stepType');
+
+let stepId = 0;
+
+addStepBtn.addEventListener('click', () => {
+  const type = stepType.value;
+  const label = stepType.options[stepType.selectedIndex].text;
+
+  // Create step element
+  const step = document.createElement('div');
+  step.className = 'workflow-step';
+  step.draggable = true;
+  step.dataset.id = ++stepId;
+
+  step.innerHTML = `
+    <span>${label}</span>
+    <button class="delete-btn">&times;</button>
+  `;
+
+  // Delete button
+  step.querySelector('.delete-btn').addEventListener('click', () => {
+    step.remove();
+  });
+
+  // Drag events
+  step.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text/plain', step.dataset.id);
+    step.classList.add('dragging');
+  });
+
+  step.addEventListener('dragend', () => {
+    step.classList.remove('dragging');
+  });
+
+  canvas.appendChild(step);
+});
+
+// Drag & Drop reordering inside canvas
+canvas.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  const dragging = document.querySelector('.dragging');
+  const afterElement = getDragAfterElement(canvas, e.clientX, e.clientY);
+  if (afterElement == null) {
+    canvas.appendChild(dragging);
+  } else {
+    canvas.insertBefore(dragging, afterElement);
+  }
+});
+
+function getDragAfterElement(container, x, y) {
+  const draggableElements = [...container.querySelectorAll('.workflow-step:not(.dragging)')];
+  return draggableElements.reduce((closest, child) => {
+    const box = child.getBoundingClientRect();
+    const offset = y - box.top - box.height / 2;
+    if (offset < 0 && offset > closest.offset) {
+      return { offset: offset, element: child };
+    } else {
+      return closest;
+    }
+  }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
