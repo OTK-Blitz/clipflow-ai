@@ -1,4 +1,6 @@
-/* Reset */
+/* -----------------------------
+   Reset & Base
+----------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +15,9 @@ body {
   background: #f5f7fa;
 }
 
-/* Sidebar */
+/* -----------------------------
+   Sidebar
+----------------------------- */
 .sidebar {
   width: 220px;
   background: #1e1f26;
@@ -49,7 +53,9 @@ body {
   font-weight: bold;
 }
 
-/* Main Content */
+/* -----------------------------
+   Main Content
+----------------------------- */
 .main-content {
   flex: 1;
   display: flex;
@@ -60,18 +66,40 @@ body {
   padding: 20px;
   background: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .topbar h1 {
   font-size: 1.5rem;
 }
 
+.topbar button {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.topbar button:hover {
+  background: #3730a3;
+}
+
+/* -----------------------------
+   Content
+----------------------------- */
 .content {
   padding: 30px;
   flex: 1;
   overflow-y: auto;
 }
 
+/* Intro Section */
 .intro {
   text-align: center;
   margin-bottom: 40px;
@@ -87,7 +115,7 @@ body {
   margin-bottom: 20px;
 }
 
-button {
+.intro button {
   padding: 12px 20px;
   font-size: 1rem;
   background: #4f46e5;
@@ -98,11 +126,13 @@ button {
   transition: 0.2s;
 }
 
-button:hover {
+.intro button:hover {
   background: #3730a3;
 }
 
-/* Workflow Canvas */
+/* -----------------------------
+   Workflow Canvas
+----------------------------- */
 .workflow-canvas {
   border: 2px dashed #bbb;
   background: #fff;
@@ -113,5 +143,117 @@ button:hover {
   justify-content: center;
   color: #777;
   font-size: 1.1rem;
+  margin-bottom: 40px;
+  padding: 10px;
+  flex-wrap: wrap;
 }
 
+/* Workflow Steps */
+.workflow-step {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+  transition: 0.2s;
+}
+
+.workflow-step:active {
+  cursor: grabbing;
+  background: #e0e7ff;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #dc2626;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* -----------------------------
+   Contact Form
+----------------------------- */
+.contact {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact h3 {
+  margin-bottom: 15px;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contact button:hover {
+  background: #3730a3;
+}
+
+#formMsg {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* -----------------------------
+   Footer
+----------------------------- */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background: #fff;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* -----------------------------
+   Dark Mode Overrides
+----------------------------- */
+.light body {
+  background: #f6f8fb;
+  color: #0b0c10;
+}
+
+.light .topbar {
+  background: rgba(255,255,255,.9);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.light .workflow-canvas,
+.light .workflow-step,
+.light input,
+.light textarea {
+  background: #fff;
+  border-color: rgba(0,0,0,.15);
+  color: #0b0c10;
+}
+
+.light button {
+  background: #4f46e5;
+  color: #fff;
+}
